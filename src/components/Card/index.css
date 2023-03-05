@@ -20,20 +20,41 @@
 .overview {
     position: absolute;
     bottom: 0;
-    left: 0px;
+    left: 0;
     right: 0px;
     overflow: auto;
     color: black;
     transform: translateY(100%);
     transition: transform 0.3s ease-in;
-    /* opacity: 0; */
     display: none;
     text-align: left;
+}
+.movie-card:hover{
+    box-shadow: 0 5px 10px #2f2f8d;
+    transition: all .2s
+}
+.movie-card:hover img{
+    opacity: 0.8;
+}
+
+.list-card{
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.list-card:hover{
+    background: #001324;
+     box-shadow: 0 5px 20px #0769be;
+    transition: all .2s ;
+    cursor: pointer
 }
 
 .movie-card:hover .overview {
     transform: translateY(0);
     background-color: white;
-    /* opacity: 1; */
     display: block;
+}
+
+.list-card p{
+    padding:0
 }

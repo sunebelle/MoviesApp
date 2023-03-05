@@ -49,18 +49,18 @@ const MovieLayout = ({ children }: LayoutProps) => {
                             <Title level={4} style={{ color: "white" }}> <PlayCircleOutlined style={{ color: "#1677ff", paddingRight: 4, fontSize: 16 }} />Now Playing</Title>
                         </Link>
                     </Col>
-                    <Col xs={0} sm={0} md={0} lg={0} xl={3} >
+                    <Col xs={0} sm={0} md={0} lg={0} xl={4} >
                         <Link to="/" className="tab-bar">
                             <Title level={4} style={{ color: "white" }}><StarFilled style={{ color: "yellow", paddingRight: 4, fontSize: 16 }} />Top Rated</Title>
                         </Link>
                     </Col>
-                    <Col xs={20} sm={16} md={16} lg={16} xl={9} style={{ display: "flex", justifyContent: 'center', alignItems: 'center' }}>s
+                    <Col xs={20} sm={16} md={16} lg={16} xl={8} style={{ display: "flex", justifyContent: 'center', alignItems: 'center' }}>s
                         <InputSearch />
                     </Col>
                     <Col xs={0} sm={0} md={0} lg={0} xl={4}>
                         <Segmented
                             options={segmentedOptions}
-                            defaultValue={VIEW_PORT.LIST}
+                            defaultValue={VIEW_PORT.GRID}
                             onChange={(value: any) => setViewMode(value)}
                         />
                     </Col>

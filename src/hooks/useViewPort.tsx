@@ -11,7 +11,7 @@ interface ViewPortContext {
 }
 
 const initialState = {
-    viewMode: VIEW_PORT.LIST,
+    viewMode: VIEW_PORT.GRID,
     setViewMode: () => null
 }
 
@@ -20,7 +20,7 @@ export const ViewModeContext = createContext<ViewPortContext>(initialState);
 
 
 const ViewModeProvider = ({ children }: Props) => {
-    const [viewMode, setViewMode] = useState<string>(VIEW_PORT.LIST)
+    const [viewMode, setViewMode] = useState<string>(VIEW_PORT.GRID)
 
     return (
         <ViewModeContext.Provider value={{ viewMode, setViewMode }}>
