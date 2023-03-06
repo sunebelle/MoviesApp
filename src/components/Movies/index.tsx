@@ -6,7 +6,6 @@ import List from 'antd/es/list';
 import { useViewModeContext } from '../../hooks/useViewPort';
 import Card from '../Card'
 import { MENU_MOVIE, VIEW_PORT } from '../../constants/enums';
-import './index.css';
 
 const Movies = () => {
     const [movies, setMovies] = useState<MoviesResponse[]>([])
@@ -21,6 +20,7 @@ const Movies = () => {
         try {
             const res = await getMovies()
             setMovies(res?.data?.results || [])
+            // message.success("Get movie list successfully")
         } catch (error: any) {
             message.error(error?.message || "Something went wrong")
         } finally {
@@ -31,7 +31,8 @@ const Movies = () => {
     const getTopRatedMoviesList = useCallback(async () => {
         try {
             const res = await getTopRatedMovies()
-            setMovies(res?.data?.results || [])
+            setMovies(res?.data?.results?.filter((el: MoviesResponse) => el?.id !== 995133) || [])
+            // message.success("Get movie list successfully")
         } catch (error: any) {
             message.error(error?.message || "Something went wrong")
         } finally {
@@ -75,7 +76,8 @@ const Movies = () => {
     const handleScroll = () => {
         const bottom =
             window.innerHeight + window.scrollY >= document.documentElement.scrollHeight;
-        if (window.scrollY === 0 || bottom) {
+        if (window.scrollY === 0) {
+        // if (window.scrollY === 0 || bottom) {
             setRefreshing(true);
             if (bottom) setReachBottom(true)
         } else {
