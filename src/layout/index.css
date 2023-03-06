@@ -1,7 +1,7 @@
-.tab-bar{
-
-}
-
 .footer .ant-typography{
     color: #fff;
+}
+
+.selectedMenu{
+    opacity: 0.5
 }

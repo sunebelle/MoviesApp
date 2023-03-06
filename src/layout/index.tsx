@@ -2,11 +2,9 @@ import { Button, Col, Divider, Row, Segmented, Space } from 'antd'
 import Layout, { Content, Footer, Header } from 'antd/es/layout/layout'
 import React, { ReactNode } from 'react'
 import InputSearch from '../components/InputSearch'
-import { VIEW_PORT } from '../constants/enums'
+import { MENU_MOVIE, VIEW_PORT } from '../constants/enums'
 import { AppstoreOutlined, PlayCircleOutlined, BarsOutlined, StarFilled, DownloadOutlined, MenuOutlined } from '@ant-design/icons'
 import { useViewModeContext } from '../hooks/useViewPort'
-import { Menu } from 'antd';
-import type { MenuProps } from 'antd';
 import { Typography } from 'antd';
 import { Link } from "react-router-dom";
 import './index.css';
@@ -19,7 +17,7 @@ interface LayoutProps {
 }
 
 const MovieLayout = ({ children }: LayoutProps) => {
-    const { setViewMode } = useViewModeContext();
+    const { setViewMode, setMenuMovie, menuMovie } = useViewModeContext();
 
     const segmentedOptions = [
         {
@@ -45,12 +43,12 @@ const MovieLayout = ({ children }: LayoutProps) => {
                         <MenuOutlined style={{ color: "white", fontSize: 20 }} />
                     </Col>
                     <Col xs={0} sm={0} md={0} lg={0} xl={4} >
-                        <Link to="/" className="tab-bar">
+                        <Link to="#" onClick={() => setMenuMovie(MENU_MOVIE.PLAYING_NOW)} className={menuMovie === MENU_MOVIE.PLAYING_NOW ? "selectedMenu" : ""}>
                             <Title level={4} style={{ color: "white" }}> <PlayCircleOutlined style={{ color: "#1677ff", paddingRight: 4, fontSize: 16 }} />Now Playing</Title>
                         </Link>
                     </Col>
                     <Col xs={0} sm={0} md={0} lg={0} xl={4} >
-                        <Link to="/" className="tab-bar">
+                        <Link to="#" onClick={() => setMenuMovie(MENU_MOVIE.TOP_RATED)} className={menuMovie === MENU_MOVIE.TOP_RATED ? "selectedMenu" : ""}>
                             <Title level={4} style={{ color: "white" }}><StarFilled style={{ color: "yellow", paddingRight: 4, fontSize: 16 }} />Top Rated</Title>
                         </Link>
                     </Col>
